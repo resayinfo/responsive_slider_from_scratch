@@ -45,6 +45,10 @@ body {
     margin-left: 30px;
 }
 
+.slide .fa.fa-circle-o:hover::before {
+    content:  "\f111";
+}
+
 @media only screen and (max-width: 650px) {
     .slider-container {
         width: 450px;

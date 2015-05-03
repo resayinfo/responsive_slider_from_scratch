@@ -3,11 +3,6 @@
 (function() {
     "use strict";
 
-    $('.slide').on('mouseenter', '.fa', function() {
-        $(this).removeClass('fa-circle-o');
-        $(this).addClass('fa-circle');
-    });
-
     $('.slide').on('mouseleave', '.fa', function() {
 
         var image_index = $('.slider').css('background-image');
