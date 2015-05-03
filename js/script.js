@@ -1,4 +1,7 @@
-$(function() {
+/*jshint strict:true, browser:true, jquery:true, devel:true, curly:true, eqeqeq:true, immed:true, latedef:true, plusplus:true, undef:true, unused:true */
+
+(function() {
+    "use strict";
 
     $('.slide').on('mouseenter', '.fa', function() {
         $(this).removeClass('fa-circle-o');
@@ -8,10 +11,10 @@ $(function() {
     $('.slide').on('mouseleave', '.fa', function() {
 
         var image_index = $('.slider').css('background-image');
-        image_index = parseInt(image_index.split('/').pop().split('.')[0].split('-')[1]);
+        image_index = parseInt(image_index.split('/').pop().split('.')[0].split('-')[1], 10);
         image_index -= 1;
 
-        var slide_index = parseInt($(this).index());
+        var slide_index = parseInt($(this).index(), 10);
 
         if(image_index !== slide_index)
         {
@@ -23,12 +26,12 @@ $(function() {
 
     $('.slide').on('click', '.fa', function() {
         var index = $(this).index() + 1;
-        var path = 'url(images/slider-0' + index + '.jpg)'; 
+        var path = 'url(images/slider-0' + index + '.jpg)';
 
         $('.slider').css({
             backgroundImage: path
         });
-        
+
         $('.slide .fa').removeClass('fa-circle');
         $('.slide .fa').addClass('fa-circle-o');
         $(this).addClass('fa-circle');
@@ -36,9 +39,9 @@ $(function() {
 
     $.getJSON('/images/content.json', function(_data) {
 
-        data = _data.content;
+        var data = _data.content;
 
-        for(i=0; i<data.length; i++)
+        for(var i=0; i<data.length; i += 1)
         {
             if(i === 0)
             {
